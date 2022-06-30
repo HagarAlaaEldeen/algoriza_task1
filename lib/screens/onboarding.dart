@@ -49,8 +49,7 @@ class _OnboardingState extends State<Onboarding> {
                   style: TextStyle(fontSize: 15, color: Colors.white54),
                 ),
                 style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.deepPurpleAccent),
+                    backgroundColor: MaterialStateProperty.all(Colors.purple),
                     padding: MaterialStateProperty.all(
                         const EdgeInsets.symmetric(
                             horizontal: 75, vertical: 13)),
@@ -60,10 +59,18 @@ class _OnboardingState extends State<Onboarding> {
               height: 22,
             ),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                const Text('Do not have an account?'),
-                TextButton(onPressed: () {}, child: const Text('Sign Up'))
+                const Text('Do not have an account? '),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/register");
+                    },
+                    child: const Text(
+                      ' Sign Up',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.blueGrey),
+                    ))
               ],
             )
           ],

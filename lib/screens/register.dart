@@ -10,89 +10,149 @@ class Register extends StatelessWidget {
       body: SizedBox(
         height: double.infinity,
         width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Image.asset(
-              "assets/images/woolly-goals-1.png",
-              height: 200,
-            ),
-            const Text(
-              "Sign in",
-              style: TextStyle(fontSize: 30),
-            ),
-            const SizedBox(
-              height: 22,
-            ),
-            TextFormField(),
-            const SizedBox(
-              height: 22,
-            ),
-            TextFormField(),
-            const SizedBox(
-              height: 22,
-            ),
-            TextFormField(),
-            const SizedBox(
-              height: 22,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "/login");
-                },
-                child: const Text(
-                  'Sign In',
-                  style: TextStyle(fontSize: 15, color: Colors.white54),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/images/sign-up.png",
+                height: 200,
+              ),
+              const Text(
+                "Sign up",
+                style: TextStyle(fontSize: 30),
+              ),
+              const SizedBox(
+                height: 22,
+              ),
+              TextFormField(
+                initialValue: 'Eg. 12345678 ',
+                maxLength: 15,
+                decoration: const InputDecoration(
+                  icon: Icon(
+                    Icons.flag,
+                    color: Colors.purple,
+                  ),
+                  labelText: 'Phone Number',
+                  labelStyle: TextStyle(
+                    color: Colors.purple,
+                  ),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.purple,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(3))),
                 ),
-                style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.white),
-                    padding: MaterialStateProperty.all(
-                        const EdgeInsets.symmetric(
-                            horizontal: 75, vertical: 13)),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25))))),
-            const SizedBox(
-              height: 15,
-            ),
-            const Text(
-              'or',
-              style: TextStyle(fontSize: 11, color: Colors.grey),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, "/login");
-                },
-                child: const Text(
-                  'Sign With by Google',
-                  style: TextStyle(fontSize: 15, color: Colors.blueAccent),
+              ),
+              const SizedBox(
+                height: 22,
+              ),
+              TextFormField(
+                initialValue: 'Eg. 12345678 ',
+                maxLength: 20,
+                decoration: const InputDecoration(
+                  icon: Icon(
+                    Icons.flag,
+                    color: Colors.purple,
+                  ),
+                  labelText: 'Email',
+                  labelStyle: TextStyle(
+                    color: Colors.purple,
+                  ),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.purple,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(3))),
                 ),
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.deepPurpleAccent),
-                    padding: MaterialStateProperty.all(
-                        const EdgeInsets.symmetric(
-                            horizontal: 75, vertical: 13)),
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(25))))),
-            const SizedBox(
-              height: 22,
-            ),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const Text('Has any account?'),
-                TextButton(onPressed: () {}, child: const Text('Sign in here'))
-              ],
-            ),
-            const SizedBox(
-              height: 22,
-            ),
-            const Text(
-                'By registering your account, you are agree to our terms and condition'),
-          ],
+              ),
+              const SizedBox(
+                height: 22,
+              ),
+              TextFormField(
+                initialValue: ' password',
+                maxLength: 20,
+                decoration: const InputDecoration(
+                  icon: Icon(
+                    Icons.flag,
+                    color: Colors.purple,
+                  ),
+                  labelText: 'Password',
+                  labelStyle: TextStyle(
+                    color: Colors.purple,
+                  ),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Colors.purple,
+                      ),
+                      borderRadius: BorderRadius.all(Radius.circular(3))),
+                ),
+              ),
+              const SizedBox(
+                height: 22,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/login");
+                  },
+                  child: const Text(
+                    'Sign Up',
+                    style: TextStyle(fontSize: 15, color: Colors.purple),
+                  ),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                      padding: MaterialStateProperty.all(
+                          const EdgeInsets.symmetric(
+                              horizontal: 75, vertical: 13)),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25))))),
+              const SizedBox(
+                height: 15,
+              ),
+              const Text(
+                'or',
+                style: TextStyle(fontSize: 11, color: Colors.grey),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "/login");
+                  },
+                  child: const Text(
+                    'Sign With by Google',
+                    style: TextStyle(fontSize: 15, color: Colors.white54),
+                  ),
+                  style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.purple),
+                      padding: MaterialStateProperty.all(
+                          const EdgeInsets.symmetric(
+                              horizontal: 75, vertical: 13)),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(25))))),
+              const SizedBox(
+                height: 22,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const Text('Has any account?'),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/login");
+                      },
+                      child: const Text('Sign in here'))
+                ],
+              ),
+              const SizedBox(
+                height: 22,
+              ),
+              const Text(
+                  'By registering your account, you are agree to our terms and condition'),
+            ],
+          ),
         ),
       ),
     ));

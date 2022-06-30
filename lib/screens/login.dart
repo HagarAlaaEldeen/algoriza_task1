@@ -13,7 +13,10 @@ class Login extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.asset("assets/images/woolly-goals-1.png"),
+            Image.asset(
+              "assets/images/sign-in.png",
+              height: 200,
+            ),
             const Text(
               "Sign in",
               style: TextStyle(fontSize: 30),
@@ -21,7 +24,25 @@ class Login extends StatelessWidget {
             const SizedBox(
               height: 22,
             ),
-            TextFormField(),
+            TextFormField(
+              initialValue: 'Eg. 12345678 ',
+              maxLength: 20,
+              decoration: const InputDecoration(
+                icon: Icon(
+                  Icons.flag,
+                  color: Colors.purple,
+                ),
+                labelText: 'Phone Number',
+                labelStyle: TextStyle(
+                  color: Colors.purple,
+                ),
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Colors.purple,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(3))),
+              ),
+            ),
             const SizedBox(
               height: 22,
             ),
@@ -31,7 +52,7 @@ class Login extends StatelessWidget {
                 },
                 child: const Text(
                   'Sign In',
-                  style: TextStyle(fontSize: 15, color: Colors.white54),
+                  style: TextStyle(fontSize: 15, color: Colors.purple),
                 ),
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Colors.white),
@@ -56,11 +77,10 @@ class Login extends StatelessWidget {
                 },
                 child: const Text(
                   'Sign With by Google',
-                  style: TextStyle(fontSize: 15, color: Colors.blueAccent),
+                  style: TextStyle(fontSize: 15, color: Colors.white54),
                 ),
                 style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.deepPurpleAccent),
+                    backgroundColor: MaterialStateProperty.all(Colors.purple),
                     padding: MaterialStateProperty.all(
                         const EdgeInsets.symmetric(
                             horizontal: 75, vertical: 13)),
@@ -70,10 +90,18 @@ class Login extends StatelessWidget {
               height: 22,
             ),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 const Text('Do not have an account?'),
-                TextButton(onPressed: () {}, child: const Text('Register here'))
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/register");
+                    },
+                    child: const Text(
+                      'Register here',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.blueGrey),
+                    ))
               ],
             ),
             const SizedBox(
